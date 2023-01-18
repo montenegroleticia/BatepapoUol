@@ -44,7 +44,7 @@ footer ion-icon {
     font-size: 26px;
     margin-right: 18px;
 }
-input {
+footer input {
     color: #000000;
     font-family: 'Roboto';
     font-style: italic;
@@ -55,14 +55,14 @@ input {
     margin-left: 17px;
 }
 /* Estrutura da janela lateral */
+.esconder {
+    display: none;
+}
 aside {
     position: fixed;
     top: 0;
     display: flex;
     height: 667px;
-}
-.esconder {
-    display: none;
 }
 .transparente {
     width: 106px;
@@ -111,4 +111,49 @@ li p {
     font-size: 16px;
     line-height: 19px;
     color: #000000;
+}
+/* Tela de login */
+.login {
+    background-color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 375px;
+    height: 667px;
+}
+.login img {
+    margin-top: 72px;
+    margin-bottom: 94px;
+    width: 130px;
+    height: 92px;
+}
+.usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.usuario input {
+    background-color: #FFFFFF;
+    width: 261px;
+    height: 54px;
+    border: solid 1px #D7D7D7;
+    border-radius: 4px;
+    color: #AEAEAE;
+    text-align: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 25px;
+    margin-bottom: 15px;
+}
+.usuario button {
+    width: 109px;
+    height: 45px;
+    background-color: #E7E7E7;
+    border-radius: 9px;
+    border: transparent;
+    color: #696969;
 }
