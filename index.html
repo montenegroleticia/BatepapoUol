@@ -11,15 +11,20 @@
     <body>
         <nav>
             <img src="./midia/logo 1.png" alt="Logo do Bate-Papo UOL">
-            <ion-icon name="people"></ion-icon>
+            <ion-icon name="people" onclick="aparecerPainelLateral()"></ion-icon>
         </nav>
-        <main></main>
+        <main>
+            <ul>
+                <li class="mensagem publica"></li>
+                <li class="mensagem reservadamente"></li>
+            </ul>
+        </main>
         <footer>
             <input type="text" placeholder="Escreva aqui...">
             <ion-icon name="paper-plane-outline"></ion-icon>
         </footer>
         <aside class="esconder">
-            <div class="transparente"></div>
+            <div class="transparente" onclick="esconderPainelLateral()"></div>
             <div class="painel-lateral">
                 <div class="titulo01"><h3>Escolha um contato para enviar mensagem:</h3></div>
                 <ul class="contatos">
@@ -27,13 +32,9 @@
                         <ion-icon name="people"></ion-icon>
                         <p>Todos</p>
                     </li>
-                    <li>
+                    <li class="contato">
                         <ion-icon name="person-circle"></ion-icon>
                         <p>João</p>
-                    </li>
-                    <li>
-                        <ion-icon name="person-circle"></ion-icon>
-                        <p>Maria</p>
                     </li>
                 </ul>
                 <div class="titulo02"><h3>Escolha a visibilidade:</h3></div>
@@ -49,14 +50,14 @@
                 </ul>
             </div>
         </aside>
-        <div class="login, esconder">
+        <section>
             <img src="./midia/logo 1.png" alt="Logo do Bate-Papo UOL">
             <div class="usuario">
-                <input type="text" placeholder="Digite seu nome" >
-                <button>Entrar</button>
+                <input type="text" placeholder="Digite seu nome" id="usuario">
+                <button onclick="entrar()">Entrar</button>
             </div>
-        </div>
-        <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+        </section>
+        <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
         <script src="./assets/script.js"></script>
     </body>
 </html>
