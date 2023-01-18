@@ -10,10 +10,17 @@ function esconderPainelLateral(){
 // Login
 function entrar(){
     const input = document.querySelector("#usuario");
-    const nome = input.value;
-    console.log(nome);
+    const name = {name: (nome = input.value)};
     if (nome !== ''){
-        const logado = document.querySelector("section");
-        logado.classList.add("esconder");
+        const login = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", name);
+        login.then(entrarNoChat);
+        login.catch(naoEntrou);
     }
+}
+function entrarNoChat(){
+    const logado = document.querySelector("section");
+    logado.classList.add("esconder");
+}
+function naoEntrou(){
+    alert("Nome em uso, digite outro nome");
 }
