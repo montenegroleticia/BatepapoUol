@@ -15,6 +15,7 @@ function entrar(){
         const login = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", name);
         login.then(entrarNoChat);
         login.catch(naoEntrou);
+        setInterval(conectado, 5000);
     }
 }
 function entrarNoChat(){
@@ -23,4 +24,15 @@ function entrarNoChat(){
 }
 function naoEntrou(){
     alert("Nome em uso, digite outro nome");
+}
+// Carregar as mensagens
+function buscarMensagens(){
+    const promese = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants");
+    promese.then(carregarMensagens);
+}
+function carregarMensagens(resposta){
+    console.log(resposta);
+}
+// Manter conectado
+function conectado(){
 }

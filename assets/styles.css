@@ -34,6 +34,27 @@ main {
     width: 375px;
     height: 507px;
 }
+main li {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #000000;
+    height: 40px;
+    border-radius: 2px;
+}
+.status {
+    background-color: #DCDCDC;
+}
+.publica {
+    background-color: #FFFFFF;
+}
+.reservadamente {
+    background-color: #FFDEDE;
+}
 footer {
     width: 375px;
     height: 80px;
