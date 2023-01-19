@@ -46,11 +46,12 @@ function buscarMensagens(){
 function carregarMensagens(resposta){
     console.log("FOII");
     console.log(resposta);
+    console.log(resposta.data);
     const mensagens = document.querySelector(".mensagens");
     mensagens.innerHTML = "";
-    for (let contador = 0; contador < dada.length; contador++){
+    for (let contador = 0; contador < resposta.data.length; contador++){
         const li = `
-        <li class="${type}">
+        <li class="${type}" data-test="message">
             <p>${time}<strong>${from}</strong>${text}</p>
         </li>
         `;
