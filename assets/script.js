@@ -60,6 +60,11 @@ function carregarMensagens(resposta){
     mensagens.querySelector('li:last-child').scrollIntoView();
 }
 // Enviar mensagens
+document.addEventListener('keypress', function(e){
+    if(e.which == 13){
+        enviarMensagem();
+    }
+}, false); // enviar com o botão enter --> confuso pesquisar mais tarde
 function enviarMensagem(){
     const mensagem = document.querySelector("#campo-enviar");
     const messageObjt = {from: usuario[0].name, to:'Todos', text: mensagem.value, type:'message'};
