@@ -76,7 +76,9 @@ function envidoMensagem(){
     console.log('FOIII');
 }
 function naoEnviadoMensagem(){
-    console.log('DEU RUIM');
+    const logado = document.querySelector("section");
+    logado.classList.remove("esconder");
+
 }
 // Carregar os participantes
 function buscarParticipantes(){
