@@ -69,11 +69,7 @@ function enviarMensagem(){
     const mensagem = document.querySelector("#campo-enviar");
     const messageObjt = {from: usuario[0].name, to:'Todos', text: mensagem.value, type:'message'};
     const enviado  = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", messageObjt);
-    enviado.then(envidoMensagem);
     enviado.catch(naoEnviadoMensagem);
-}
-function envidoMensagem(){
-    console.log('FOIII');
 }
 function naoEnviadoMensagem(){
     window.location.reload();
@@ -87,8 +83,17 @@ function buscarParticipantes(){
 }
 function carregarParticipantes(resposta){
     console.log(resposta);
+    const participantes = document.querySelector(".contatos");
+    for(let contador = 0; contador < resposta.data.length; contador++){
+        const participante = resposta.data[contador].name;
+        const li = `
+    <li class="contato" data-test="participant">
+        <ion-icon name="person-circle"></ion-icon>
+        <p>${participante}</p>
+    </li> `;
+    participantes.innerHTML += li;
+    }
 }
 function naoCarregou(erro){
-    console.log("DEU RUIM");
     console.log(erro);
 }
