@@ -81,7 +81,7 @@ document.addEventListener('keypress', function(e){
     if(e.which == 13){
         enviarMensagem();
     }
-}, false); 
+}, false);
 // Enviar mensagens
 function enviarMensagem(){
     const mensagem = document.querySelector("#campo-enviar");
