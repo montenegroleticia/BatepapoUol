@@ -95,7 +95,7 @@ aside {
     position: fixed;
     top: 0;
     display: flex;
-    height: 667px;
+    height: 100%;
 }
 .transparente {
     width: 106px;

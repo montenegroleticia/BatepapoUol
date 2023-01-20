@@ -3,6 +3,7 @@ const usuario = [];
 function aparecerPainelLateral(){
     const painel = document.querySelector("aside");
     painel.classList.remove("esconder");
+    setInterval(buscarParticipantes, 1000);
 }
 function esconderPainelLateral(){
     const painel = document.querySelector("aside");
@@ -22,7 +23,6 @@ function entrar(){
 function entrarNoChat(){
     const logado = document.querySelector("section");
     logado.classList.add("esconder");
-    setInterval(buscarParticipantes, 10000);
     setInterval(buscarMensagens, 1000);
     setInterval(manterConectado, 5000);
 }
@@ -77,16 +77,15 @@ function enviarMensagem(){
 }
 function naoEnviadoMensagem(){
     window.location.reload();
-
 }
 // Carregar os participantes
 function buscarParticipantes(){
     const promese = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants");
     promese.then(carregarParticipantes);
-    promese.catch(naoCarregou);
 }
 function carregarParticipantes(resposta){
     const participantes = document.querySelector(".contatos");
+    participantes.innerHTML = '';
     for(let contador = 0; contador < resposta.data.length; contador++){
         const participante = resposta.data[contador].name;
         const li = `
@@ -96,7 +95,4 @@ function carregarParticipantes(resposta){
     </li> `;
     participantes.innerHTML += li;
     }
-}
-function naoCarregou(erro){
-    console.log(erro);
 }
