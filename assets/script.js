@@ -22,9 +22,9 @@ function entrar(){
 function entrarNoChat(){
     const logado = document.querySelector("section");
     logado.classList.add("esconder");
-    setInterval(manterConectado, 5000);
     buscarMensagens();
     buscarParticipantes();
+    setInterval(manterConectado, 5000);
 }
 function naoEntrou(erro){
     const statusCode = erro.response.status;
@@ -50,9 +50,13 @@ function carregarMensagens(resposta){
     const mensagens = document.querySelector(".mensagens");
     mensagens.innerHTML = "";
     for (let contador = 0; contador < resposta.data.length; contador++){
+        const tipo = resposta.data[contador].type;
+        const tempo = resposta.data[contador].time;
+        const de = resposta.data[contador].from;
+        const texto =resposta.data[contador].text;
         const li = `
-        <li class="${type}" data-test="message">
-            <p>${time}<strong>${from}</strong>${text}</p>
+        <li class="${tipo}" data-test="message">
+            <p>${tempo}<strong> ${de} </strong>${texto}</p>
         </li>
         `;
         mensagens.innerHTML += li;
