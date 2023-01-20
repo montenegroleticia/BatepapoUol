@@ -54,13 +54,14 @@ main li {
 .status {
     background-color: #DCDCDC;
 }
-.publica {
-    background-color: #FFFFFF;
+.message {
+    background-color: #ffffff;
 }
-.reservadamente {
+.private_message {
     background-color: #FFDEDE;
 }
 footer {
+    z-index: 0;
     width: 375px;
     height: 80px;
     bottom: 0;
@@ -154,7 +155,7 @@ section {
     flex-direction: column;
     align-items: center;
     width: 375px;
-    height: 667px;
+    height: 100%;
 }
 section img {
     margin-top: 72px;

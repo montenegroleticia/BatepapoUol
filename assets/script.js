@@ -11,7 +11,7 @@ function esconderPainelLateral(){
 // Login
 function entrar(){
     const input = document.querySelector("#usuario");
-    let name = {name: (nome = input.value)};
+    const name = {name: (nome = input.value)};
     usuario.push(name);
     if (nome !== ''){
         const login = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", name);
@@ -22,8 +22,8 @@ function entrar(){
 function entrarNoChat(){
     const logado = document.querySelector("section");
     logado.classList.add("esconder");
-    buscarMensagens();
     buscarParticipantes();
+    setInterval(buscarMensagens, 100);
     setInterval(manterConectado, 5000);
 }
 function naoEntrou(erro){
@@ -34,7 +34,6 @@ function naoEntrou(erro){
 }
 // Manter conectado
 function manterConectado(){
-    console.log(usuario[0]);
     axios.post("https://mock-api.driven.com.br/api/v6/uol/status", usuario[0]);
 } 
 // Carregar as mensagens
@@ -44,9 +43,6 @@ function buscarMensagens(){
     promese.catch(naoCarregou);
 }
 function carregarMensagens(resposta){
-    console.log("FOII");
-    console.log(resposta);
-    console.log(resposta.data);
     const mensagens = document.querySelector(".mensagens");
     mensagens.innerHTML = "";
     for (let contador = 0; contador < resposta.data.length; contador++){
@@ -61,6 +57,21 @@ function carregarMensagens(resposta){
         `;
         mensagens.innerHTML += li;
     }
+    mensagens.querySelector('li:last-child').scrollIntoView();
+}
+// Enviar mensagens
+function enviarMensagem(){
+    const mensagem = document.querySelector("#campo-enviar");
+    const messageObjt = {from: usuario[0].name, to:'Todos', text: mensagem.value, type:'message'};
+    const enviado  = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", messageObjt);
+    enviado.then(envidoMensagem);
+    enviado.catch(naoEnviadoMensagem);
+}
+function envidoMensagem(){
+    console.log('FOIII');
+}
+function naoEnviadoMensagem(){
+    console.log('DEU RUIM');
 }
 // Carregar os participantes
 function buscarParticipantes(){
@@ -69,7 +80,6 @@ function buscarParticipantes(){
     promese.catch(naoCarregou);
 }
 function carregarParticipantes(resposta){
-    console.log("FOII");
     console.log(resposta);
 }
 function naoCarregou(erro){
