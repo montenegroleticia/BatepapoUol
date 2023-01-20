@@ -49,13 +49,17 @@ function carregarMensagens(resposta){
         const tipo = resposta.data[contador].type;
         const tempo = resposta.data[contador].time;
         const de = resposta.data[contador].from;
-        const texto =resposta.data[contador].text;
+        const texto = resposta.data[contador].text;
+        const para = resposta.data[contador].to;
+
+        if (tipo !== "private_message" && para !== usuario[0].name){
         const li = `
         <li class="${tipo}" data-test="message">
             <p>${tempo}<strong> ${de} </strong>${texto}</p>
         </li>
         `;
         mensagens.innerHTML += li;
+        } 
     }
     mensagens.querySelector('li:last-child').scrollIntoView();
 }
@@ -82,7 +86,6 @@ function buscarParticipantes(){
     promese.catch(naoCarregou);
 }
 function carregarParticipantes(resposta){
-    console.log(resposta);
     const participantes = document.querySelector(".contatos");
     for(let contador = 0; contador < resposta.data.length; contador++){
         const participante = resposta.data[contador].name;
