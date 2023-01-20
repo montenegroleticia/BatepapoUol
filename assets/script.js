@@ -40,7 +40,6 @@ function manterConectado(){
 function buscarMensagens(){
     const promese = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
     promese.then(carregarMensagens);
-    promese.catch(naoCarregou);
 }
 function carregarMensagens(resposta){
     const mensagens = document.querySelector(".mensagens");
@@ -52,13 +51,27 @@ function carregarMensagens(resposta){
         const texto = resposta.data[contador].text;
         const para = resposta.data[contador].to;
 
-        if (tipo !== "private_message" && para !== usuario[0].name){
-        const li = `
-        <li class="${tipo}" data-test="message">
-            <p>${tempo}<strong> ${de} </strong>${texto}</p>
-        </li>
-        `;
-        mensagens.innerHTML += li;
+        if (tipo === "private_message" && (para === usuario[0].name || de === usuario[0].name)){
+            const li = `
+            <li class="${tipo}" data-test="message">
+               <p>${tempo}<strong> ${de} </strong>para<strong> ${para}: </strong>${texto}</p>
+            </li>
+            `;
+            mensagens.innerHTML += li;
+        } else if (tipo === "message"){
+            const li = `
+            <li class="${tipo}" data-test="message">
+                <p>${tempo}<strong> ${de} </strong>para<strong> ${para}: </strong>${texto}</p>
+            </li>
+            `;
+            mensagens.innerHTML += li;
+        } else if (tipo === "status"){
+            const li = `
+            <li class="${tipo}" data-test="message">
+                <p>${tempo}<strong> ${de} </strong>${texto}</p>
+            </li>
+            `;
+            mensagens.innerHTML += li;
         }
     }
     mensagens.querySelector('li:last-child').scrollIntoView();
