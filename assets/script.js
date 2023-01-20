@@ -35,7 +35,7 @@ function naoEntrou(erro){
 // Manter conectado
 function manterConectado(){
     axios.post("https://mock-api.driven.com.br/api/v6/uol/status", usuario[0]);
-} 
+}
 // Carregar as mensagens
 function buscarMensagens(){
     const promese = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
@@ -76,12 +76,13 @@ function carregarMensagens(resposta){
     }
     mensagens.querySelector('li:last-child').scrollIntoView();
 }
-// Enviar mensagens
+// Enviar mensagem com o botão enter
 document.addEventListener('keypress', function(e){
     if(e.which == 13){
         enviarMensagem();
     }
-}, false); // enviar com o botão enter --> confuso pesquisar mais tarde
+}, false); 
+// Enviar mensagens
 function enviarMensagem(){
     const mensagem = document.querySelector("#campo-enviar");
     const messageObjt = {from: usuario[0].name, to:'Todos', text: mensagem.value, type:'message'};

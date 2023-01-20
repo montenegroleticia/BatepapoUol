@@ -42,7 +42,7 @@ main {
 main li {
     display: flex;
     align-items: center;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
@@ -79,7 +79,7 @@ footer ion-icon {
 }
 footer input {
     color: #000000;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-style: italic;
     font-weight: 400;
     font-size: 18px;
@@ -106,21 +106,19 @@ aside {
     background-color: #FFFFFF;
 }
 .titulo01 {
-    display: flex;
     height: 84px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .titulo02 {
-    display: flex;
     height: 66px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-h3 {
-    font-family: 'Roboto';
+h2 {
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 700;
     font-size: 16px;
@@ -139,7 +137,7 @@ aside li {
 }
 aside li p {
     margin-left: 8px;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
@@ -176,7 +174,7 @@ section img {
     border-radius: 4px;
     color: #AEAEAE;
     text-align: center;
-    font-family: 'Roboto';
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
