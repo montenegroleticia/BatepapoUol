@@ -99,7 +99,11 @@ function buscarParticipantes(){
 }
 function carregarParticipantes(resposta){
     const participantes = document.querySelector(".contatos");
-    participantes.innerHTML = '';
+    participantes.innerHTML = `
+    <li class="todos" data-test="all">
+        <ion-icon name="people"></ion-icon>
+        <p>Todos</p>
+    </li>`;
     for(let contador = 0; contador < resposta.data.length; contador++){
         const participante = resposta.data[contador].name;
         const li = `

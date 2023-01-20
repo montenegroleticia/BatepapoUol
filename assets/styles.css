@@ -37,7 +37,7 @@ nav ion-icon {
 main {
     background-color: #fafafa;
     width: 375px;
-    height: 507px;
+    height: 100%;
 }
 main li {
     display: flex;
