@@ -3,7 +3,6 @@ const usuario = [];
 function aparecerPainelLateral(){
     const painel = document.querySelector("aside");
     painel.classList.remove("esconder");
-    setInterval(buscarParticipantes, 1000);
 }
 function esconderPainelLateral(){
     const painel = document.querySelector("aside");
@@ -23,6 +22,7 @@ function entrar(){
 function entrarNoChat(){
     const logado = document.querySelector("section");
     logado.classList.add("esconder");
+    setInterval(buscarParticipantes, 1000);
     setInterval(buscarMensagens, 1000);
     setInterval(manterConectado, 5000);
 }
