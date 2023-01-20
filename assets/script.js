@@ -22,8 +22,8 @@ function entrar(){
 function entrarNoChat(){
     const logado = document.querySelector("section");
     logado.classList.add("esconder");
-    buscarParticipantes();
-    setInterval(buscarMensagens, 100);
+    setInterval(buscarParticipantes, 10000);
+    setInterval(buscarMensagens, 1000);
     setInterval(manterConectado, 5000);
 }
 function naoEntrou(erro){
@@ -59,7 +59,7 @@ function carregarMensagens(resposta){
         </li>
         `;
         mensagens.innerHTML += li;
-        } 
+        }
     }
     mensagens.querySelector('li:last-child').scrollIntoView();
 }
