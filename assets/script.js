@@ -22,7 +22,7 @@ function entrar(){
 function entrarNoChat(){
     const logado = document.querySelector("section");
     logado.classList.add("esconder");
-    setInterval(buscarParticipantes, 10000);
+    setInterval(buscarParticipantes, 1000);
     setInterval(buscarMensagens, 1000);
     setInterval(manterConectado, 5000);
 }
