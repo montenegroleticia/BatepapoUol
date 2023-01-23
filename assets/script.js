@@ -112,12 +112,12 @@ function carregarParticipantes(resposta){
     for(let contador = 0; contador < resposta.data.length; contador++){
         const participante = resposta.data[contador].name;
         const li = `
-    <li class="contato" data-test="participant" onclick="selecionar('#${resposta.data[contador].name}')">
+    <li class="contato" data-test="participant" onclick="selecionar('#${participante}')">
         <div>
             <ion-icon name="person-circle"></ion-icon>
             <p>${participante}</p>
         </div>
-        <div class="confirmacao" id = '${resposta.data[contador].name}'>
+        <div class="confirmacao" id = '${participante}'>
             <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
         </div>
     </li> `;
