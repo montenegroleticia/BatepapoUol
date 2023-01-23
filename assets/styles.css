@@ -50,6 +50,7 @@ main li {
     color: #000000;
     height: 40px;
     border-radius: 2px;
+    word-break: break-word;
 }
 .status {
     background-color: #DCDCDC;
@@ -132,6 +133,7 @@ aside li {
     height: 36px;
     margin-left: 18px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
@@ -143,6 +145,20 @@ aside li p {
     font-size: 16px;
     line-height: 19px;
     color: #000000;
+    word-break: break-word;
+}
+li div {
+    display: flex;
+    align-items: center;
+}
+.confirmacao {
+    color: #28BB25;
+    font-size: 3px;
+    margin-right: 18px;
+    opacity: 0;
+}
+.aparecer{
+    opacity: 1;
 }
 /* Tela de login */
 section {

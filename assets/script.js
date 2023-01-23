@@ -22,7 +22,7 @@ function entrar(){
 function entrarNoChat(){
     const logado = document.querySelector("section");
     logado.classList.add("esconder");
-    setInterval(buscarParticipantes, 1000);
+    setInterval(buscarParticipantes, 5000);
     setInterval(buscarMensagens, 1000);
     setInterval(manterConectado, 5000);
 }
@@ -100,17 +100,45 @@ function buscarParticipantes(){
 function carregarParticipantes(resposta){
     const participantes = document.querySelector(".contatos");
     participantes.innerHTML = `
-    <li class="todos" data-test="all">
-        <ion-icon name="people"></ion-icon>
-        <p>Todos</p>
+    <li class="todos" data-test="all" onclick="selecionar('#todos')">
+        <div>
+            <ion-icon name="people"></ion-icon>
+            <p>Todos</p>
+        </div>
+        <div class="confirmacao" id = 'todos'>
+            <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
+        </div>
     </li>`;
     for(let contador = 0; contador < resposta.data.length; contador++){
         const participante = resposta.data[contador].name;
         const li = `
-    <li class="contato" data-test="participant">
-        <ion-icon name="person-circle"></ion-icon>
-        <p>${participante}</p>
+    <li class="contato" data-test="participant" onclick="selecionar('#${resposta.data[contador].name}')">
+        <div>
+            <ion-icon name="person-circle"></ion-icon>
+            <p>${participante}</p>
+        </div>
+        <div class="confirmacao" id = '${resposta.data[contador].name}'>
+            <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
+        </div>
     </li> `;
     participantes.innerHTML += li;
     }
+}
+// Check no público ou reservadamente
+function marcar(selecionado){
+    const icone = document.querySelector("div .aparecer");
+    if (icone !== null){
+        icone.classList.remove("aparecer");
+    } 
+    const confirmar = document.querySelector(selecionado);
+    confirmar.classList.add("aparecer");
+}
+// Check no participante
+function selecionar(person){
+    const icone = document.querySelector(".contato .aparecer");
+    if (icone !== null){
+        icone.classList.remove("aparecer");
+    } 
+    const confirmar = document.querySelector(person);
+    confirmar.classList.add("aparecer");
 }

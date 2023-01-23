@@ -32,13 +32,23 @@
                 <ul class="contatos"></ul>
                 <div class="titulo02"><h1>Escolha a visibilidade:</h1></div>
                 <ul>
-                    <li class="publico" data-test="public">
-                        <ion-icon name="lock-open"></ion-icon>
-                        <p>Público</p>
+                    <li class="publico" data-test="public" onclick="marcar('#p')">
+                        <div>
+                            <ion-icon name="lock-open"></ion-icon>
+                            <p>Público</p>
+                        </div>
+                        <div id="p" class="confirmacao">
+                            <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
+                        </div>
                     </li>
-                    <li class="reservadamente" data-test="private">
-                        <ion-icon name="lock-closed"></ion-icon>
-                        <p>Reservadamente</p>
+                    <li class="reservadamente" data-test="private" onclick="marcar('#r')">
+                        <div>
+                            <ion-icon name="lock-closed"></ion-icon>
+                            <p>Reservadamente</p>
+                        </div>
+                        <div id="r" class="confirmacao">
+                            <ion-icon name="checkmark-sharp" data-test="check"></ion-icon>
+                        </div>
                     </li>
                 </ul>
             </div>
