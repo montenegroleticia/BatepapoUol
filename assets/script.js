@@ -129,7 +129,7 @@ function marcar(selecionado){
     const icone = document.querySelector("div .aparecer");
     if (icone !== null){
         icone.classList.remove("aparecer");
-    } 
+    }
     const confirmar = document.querySelector(selecionado);
     confirmar.classList.add("aparecer");
 }
@@ -138,7 +138,7 @@ function selecionar(person){
     const icone = document.querySelector(".contato .aparecer");
     if (icone !== null){
         icone.classList.remove("aparecer");
-    } 
+    }
     const confirmar = document.querySelector(person);
     confirmar.classList.add("aparecer");
 }
